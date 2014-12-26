@@ -33,16 +33,23 @@ gem 'rails-html-sanitizer', '~> 1.0'
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+group :development do
+  gem 'capistrano', '~> 3.3.0'
+  gem 'capistrano-rails'
+  gem 'rvm1-capistrano3', require: false
+  gem 'capistrano-postgresql'
+  gem 'capistrano-secrets-yml'
+  gem 'capistrano-passenger'
+end
 
 group :development, :test do
-  # Call 'debugger' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
-
   # Access an IRB console on exceptions page and /console in development
   gem 'web-console', '~> 2.0.0.beta2'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-byebug'
 end
 
