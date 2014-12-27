@@ -35,6 +35,8 @@ gem 'rails-html-sanitizer', '~> 1.0'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+gem 'devise'
+
 # Use Capistrano for deployment
 group :development do
   gem 'capistrano', '~> 3.3.0'
