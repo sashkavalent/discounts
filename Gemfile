@@ -36,6 +36,7 @@ gem 'rails-html-sanitizer', '~> 1.0'
 # gem 'unicorn'
 
 gem 'devise'
+gem 'annotate'
 
 # Use Capistrano for deployment
 group :development do
