@@ -1,7 +1,17 @@
-h1 Users
+h3 Users
 table
   tr
+    th Id
     th Email
-  - @users.each do |user|
-    tr
-      td = user.email
+    th Sign in count
+    th Current sign in at
+    th Created at
+    th Updated at
+    - @users.each do |user|
+      tr
+        td = user.id
+        td = user.email
+        td = user.sign_in_count
+        td = user.current_sign_in_at
+        td = user.created_at
+        td = user.updated_at
