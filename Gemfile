@@ -37,6 +37,10 @@ gem 'rails-html-sanitizer', '~> 1.0'
 
 gem 'devise'
 gem 'annotate'
+gem 'paperclip'
+gem 'simple_form'
+gem 'inherited_resources', github: 'josevalim/inherited_resources', branch: 'rails-4-2'
+gem 'table_for_collection'
 
 # Use Capistrano for deployment
 group :development do
