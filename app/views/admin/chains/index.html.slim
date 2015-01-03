@@ -1,0 +1,11 @@
+h3 Chain stores
+= link_to 'new', new_resource_path, class: 'btn btn-default'
+= table_for collection, html: { class: 'table table-bordered' } do
+  - column :id
+  - column :name
+  - column :logo do |logo|
+    - image_tag logo.try { |logo| logo.attachment.url(:thumb) }
+  - column :created_at
+  - column :updated_at
+  - column title: 'Actions' do |chain|
+    - action_buttons(chain)

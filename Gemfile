@@ -50,6 +50,8 @@ group :development do
   gem 'capistrano-postgresql'
   gem 'capistrano-secrets-yml'
   gem 'capistrano-passenger'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :development, :test do
@@ -61,5 +63,6 @@ group :development, :test do
   gem 'pry'
   gem 'pry-rails'
   gem 'pry-byebug'
+  gem 'pry-doc'
 end
 

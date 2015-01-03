@@ -1,8 +1,10 @@
 nav.navbar.navbar-default
   .container-fluid
     .navbar-header
-      a.navbar-brand[href='/']
+      a.navbar-brand href='/admin'
         | DiscountsWithMe
     .collapse.navbar-collapse
+      ul.nav.navbar-nav
+        li = link_to 'Chain stores', admin_chains_path
       ul.nav.navbar-nav.navbar-right
         = render 'layouts/account_links'
