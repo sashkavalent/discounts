@@ -1,0 +1,15 @@
+h3 Discounts
+.well.btn-toolbar
+  = link_to 'new', new_resource_path, class: 'btn btn-primary'
+  = link_to 'Cancel', admin_chains_path, class: 'btn btn-default'
+= table_for collection, html: { class: 'table table-bordered' } do
+  - column :id
+  - column :product_name
+  - column :image do |image|
+    - image_tag image.try { |image| image.attachment.url(:thumb) }
+  - column :price
+  - column :economy
+  - column :created_at
+  - column :updated_at
+  - column title: 'Actions' do |discount|
+    - discounts_actions(discount)

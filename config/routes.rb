@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+
   devise_for :users
+
   namespace :admin do
-    resources :chains
+
+    resources :chains do
+      resources :discounts
+    end
+
     root 'users#index'
   end
   # The priority is based upon order of creation: first created -> highest priority.

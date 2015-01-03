@@ -1,0 +1,14 @@
+= simple_form_for [:admin, parent, resource], html: { class: 'form-horizontal' },
+                            wrapper: :horizontal_form,
+                            wrapper_mappings: {\
+                              file: :horizontal_file_input\
+                            } do |f|
+  .well.btn-toolbar
+    = f.button :submit, class: 'btn-primary'
+    = link_to 'Cancel', collection_path, class: 'btn btn-default'
+  = f.input :product_name
+  = f.simple_fields_for :image, resource.builded_image do |image_form|
+    = image_form.input :attachment, as: :file, label: 'Image file'
+    = image_form.input :source_url, label: 'or image url'
+  = f.input :price
+  = f.input :economy, input_html: { min: 0, max: 100 }

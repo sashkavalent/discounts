@@ -3,8 +3,10 @@
                             wrapper_mappings: {\
                               file: :horizontal_file_input\
                             } do |f|
+  .well.btn-toolbar
+    = f.button :submit, class: 'btn-primary'
+    = link_to 'Cancel', collection_path, class: 'btn btn-default'
   = f.input :name
   = f.simple_fields_for :logo, resource.builded_logo do |logo_form|
     = logo_form.input :attachment, as: :file, label: 'Logo file'
     = logo_form.input :source_url, label: 'or logo url'
-  = f.button :submit

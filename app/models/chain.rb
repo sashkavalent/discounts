@@ -10,6 +10,7 @@
 
 class Chain < ActiveRecord::Base
   has_one :logo, as: :imageable, class_name: 'Image'
+  has_many :discounts
   validates :name, presence: true
   accepts_nested_attributes_for :logo
 

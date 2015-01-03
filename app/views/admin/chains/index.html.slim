@@ -1,5 +1,5 @@
 h3 Chain stores
-= link_to 'new', new_resource_path, class: 'btn btn-default'
+= link_to 'new', new_resource_path, class: 'btn btn-primary'
 = table_for collection, html: { class: 'table table-bordered' } do
   - column :id
   - column :name
@@ -8,4 +8,4 @@ h3 Chain stores
   - column :created_at
   - column :updated_at
   - column title: 'Actions' do |chain|
-    - action_buttons(chain)
+    - chain_actions(chain)
