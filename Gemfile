@@ -41,6 +41,8 @@ gem 'paperclip'
 gem 'simple_form'
 gem 'inherited_resources', github: 'josevalim/inherited_resources', branch: 'rails-4-2'
 gem 'table_for_collection'
+gem 'grape'
+gem 'grape-swagger'
 
 # Use Capistrano for deployment
 group :development do
