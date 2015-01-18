@@ -43,6 +43,8 @@ gem 'inherited_resources', github: 'josevalim/inherited_resources', branch: 'rai
 gem 'table_for_collection'
 gem 'grape'
 gem 'grape-swagger'
+gem 'mini_magick'
+gem 'grim'
 
 # Use Capistrano for deployment
 group :development do
@@ -66,5 +68,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'pry-doc'
+  gem 'pry-rescue'
+  gem 'pry-stack_explorer'
+  gem 'did_you_mean'
 end
-

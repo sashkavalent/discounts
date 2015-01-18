@@ -23,9 +23,4 @@ class Image < ActiveRecord::Base
                              default_url: '/images/:style/missing.png'
   validates_attachment_content_type :attachment, content_type: /\Aimage\/.*\Z/
   validates :attachment, presence: true
-
-  def source_url=(url)
-    self.attachment = URI.parse(url).to_s
-  end
-  def source_url;end
 end

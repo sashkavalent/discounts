@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150103103103) do
+ActiveRecord::Schema.define(version: 20150117211732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,9 +29,14 @@ ActiveRecord::Schema.define(version: 20150103103103) do
     t.integer  "chain_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "sheet_id"
+    t.datetime "active_from"
+    t.datetime "active_till"
   end
 
+  add_index "discounts", ["active_till", "active_from"], name: "index_discounts_on_active_till_and_active_from", using: :btree
   add_index "discounts", ["chain_id"], name: "index_discounts_on_chain_id", using: :btree
+  add_index "discounts", ["sheet_id"], name: "index_discounts_on_sheet_id", using: :btree
 
   create_table "images", force: :cascade do |t|
     t.integer  "imageable_id"
@@ -45,6 +50,37 @@ ActiveRecord::Schema.define(version: 20150103103103) do
   end
 
   add_index "images", ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id", using: :btree
+
+  create_table "settings", force: :cascade do |t|
+    t.json     "fields"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sheet_settings", force: :cascade do |t|
+    t.string   "page_with_link_url"
+    t.string   "download_link_selector"
+    t.integer  "rows_number"
+    t.integer  "columns_number"
+    t.integer  "margin_left"
+    t.integer  "margin_top"
+    t.integer  "margin_right"
+    t.integer  "margin_bottom"
+    t.string   "type"
+    t.integer  "chain_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "sheet_settings", ["chain_id"], name: "index_sheet_settings_on_chain_id", using: :btree
+
+  create_table "sheets", force: :cascade do |t|
+    t.integer  "chain_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "sheets", ["chain_id"], name: "index_sheets_on_chain_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

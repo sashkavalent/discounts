@@ -11,7 +11,7 @@ class V1::Chains < Grape::API
         requires :id, type: Integer, desc: 'Chain id'
       end
       get :discounts do
-        Discount.where(chain_id: params[:id])
+        Discount.where(chain_id: params[:id]).includes(:image)
       end
     end
   end

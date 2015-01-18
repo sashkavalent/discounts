@@ -3,10 +3,24 @@
                             wrapper_mappings: {\
                               file: :horizontal_file_input\
                             } do |f|
-  .well.btn-toolbar
+  .well.well-sm.btn-toolbar
     = f.button :submit, class: 'btn-primary'
     = link_to 'Cancel', collection_path, class: 'btn btn-default'
   = f.input :name
   = f.simple_fields_for :logo, resource.builded_logo do |logo_form|
     = logo_form.input :attachment, as: :file, label: 'Logo file'
-    = logo_form.input :source_url, label: 'or logo url'
+    = image_tag(logo_form.object.attachment.url(:thumb)) if logo_form.object.attachment.present?
+    = logo_form.input :attachment, as: :url, label: 'or logo url'
+  .well.clearfix
+    h4 Sheet settings
+    = f.simple_fields_for :sheet_setting, resource.builded_sheet_setting do |sheet_setting_form|
+      = sheet_setting_form.input :page_with_link_url
+      = sheet_setting_form.input :download_link_selector
+      h5 Layout
+      .col-sm-6= sheet_setting_form.input :rows_number
+      .col-sm-6= sheet_setting_form.input :columns_number
+      h5 Margin
+      .col-sm-6= sheet_setting_form.input :margin_left, label: 'left'
+      .col-sm-6= sheet_setting_form.input :margin_right, label: 'right'
+      .col-sm-6= sheet_setting_form.input :margin_top, label: 'top'
+      .col-sm-6= sheet_setting_form.input :margin_bottom, label: 'bottom'

@@ -1,17 +1,22 @@
 Rails.application.routes.draw do
-
   devise_for :users
+  mount API => '/'
 
   namespace :admin do
+    root to: 'users#index'
 
     resources :chains do
+      member do
+        post :update_sheet
+      end
       resources :discounts
+      resources :sheets
+      resources :sheet_settings
     end
 
-    root 'users#index'
+    resources :settings, only: [:edit, :update]
   end
 
-  mount API => '/'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,10 +1,6 @@
-class Admin::ChainsController < ApplicationController
+class Admin::SheetsController < ApplicationController
   inherit_resources
-
-  def update_sheet
-    resource.update_sheet
-    redirect_to admin_chain_sheets_path(resource)
-  end
+  belongs_to :chain
 
   def create
     create! { collection_path }

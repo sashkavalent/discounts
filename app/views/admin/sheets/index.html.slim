@@ -1,0 +1,12 @@
+h3 Sheets
+.well.btn-toolbar
+  = link_to 'new', new_resource_path, class: 'btn btn-primary'
+  = link_to 'Cancel', admin_chains_path, class: 'btn btn-default'
+= table_for collection, html: { class: 'table table-bordered' } do
+  - column :id
+  - column title: 'Images' do |sheet|
+    - sheet_images(sheet)
+  - column :created_at
+  - column :updated_at
+  - column title: 'Actions' do |sheet|
+    - sheets_actions(sheet)

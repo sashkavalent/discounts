@@ -13,4 +13,4 @@
 /config/database.yml
 /config/secrets.yml
 /vendor/bundle
-/public/system/images
+/public/system/

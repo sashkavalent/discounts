@@ -1,0 +1,6 @@
+= simple_form_for [:admin, resource], html: { class: 'form-horizontal' },
+                            wrapper: :horizontal_form do |f|
+  .well.btn-toolbar
+    = f.button :submit, class: 'btn-primary'
+    = link_to 'Cancel', admin_root_path, class: 'btn btn-default'
+  = f.input :image_density

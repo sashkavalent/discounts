@@ -117,6 +117,8 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    did_you_mean (0.9.5)
+      interception
     equalizer (0.0.9)
     erubis (2.7.0)
     execjs (2.2.2)
@@ -138,6 +140,7 @@ GEM
     grape-swagger (0.9.0)
       grape (>= 0.8.0)
       grape-entity
+    grim (1.1.0)
     has_scope (0.6.0.rc)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
@@ -145,6 +148,7 @@ GEM
     hike (1.2.3)
     i18n (0.7.0)
     ice_nine (0.11.1)
+    interception (0.5)
     jbuilder (2.2.6)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -159,6 +163,7 @@ GEM
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
     mime-types (2.4.3)
+    mini_magick (4.0.2)
     mini_portile (0.6.1)
     minitest (5.5.0)
     multi_json (1.10.1)
@@ -187,6 +192,12 @@ GEM
       yard (~> 0.8)
     pry-rails (0.3.2)
       pry (>= 0.9.10)
+    pry-rescue (1.4.1)
+      interception (>= 0.5)
+      pry
+    pry-stack_explorer (0.4.9.1)
+      binding_of_caller (>= 0.7)
+      pry (>= 0.9.11)
     rack (1.6.0)
     rack-accept (0.4.5)
       rack (>= 0.4)
@@ -305,17 +316,22 @@ DEPENDENCIES
   capistrano-secrets-yml
   coffee-rails (~> 4.0.0)
   devise
+  did_you_mean
   grape
   grape-swagger
+  grim
   inherited_resources!
   jbuilder (~> 2.0)
   jquery-rails
+  mini_magick
   paperclip
   pg
   pry
   pry-byebug
   pry-doc
   pry-rails
+  pry-rescue
+  pry-stack_explorer
   rails (= 4.2.0)
   rails-html-sanitizer (~> 1.0)
   rvm1-capistrano3
