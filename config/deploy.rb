@@ -1,4 +1,6 @@
 # config valid only for current version of Capistrano
+require 'capistrano-db-tasks'
+
 lock '3.3.5'
 
 set :application, 'discounts'
@@ -13,7 +15,6 @@ set :linked_dirs, %w(bin
                      public/assets
                      public/system)
 set :use_sudo, false
-
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 

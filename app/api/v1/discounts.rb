@@ -1,8 +1,11 @@
 class V1::Discounts < Grape::API
+  include Grape::Kaminari
+
   resource :discounts do
     desc 'Returns all discounts.'
+    paginate
     get do
-      Discount.all
+      paginate Discount.all.order('created_at DESC')
     end
   end
 end

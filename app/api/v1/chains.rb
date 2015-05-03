@@ -1,4 +1,6 @@
 class V1::Chains < Grape::API
+  include Grape::Kaminari
+
   resources :chains do
     desc 'Returns all chains.'
     get do
@@ -10,8 +12,9 @@ class V1::Chains < Grape::API
       params do
         requires :id, type: Integer, desc: 'Chain id'
       end
+      paginate
       get :discounts do
-        Discount.where(chain_id: params[:id]).includes(:image)
+        paginate Discount.where(chain_id: params[:id]).includes(:image)
       end
     end
   end

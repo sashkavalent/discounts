@@ -45,6 +45,7 @@ gem 'grape'
 gem 'grape-swagger'
 gem 'mini_magick'
 gem 'grim'
+gem 'grape-kaminari'
 
 # Use Capistrano for deployment
 group :development do
@@ -56,6 +57,7 @@ group :development do
   gem 'capistrano-passenger'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'capistrano-db-tasks'
 end
 
 group :development, :test do
