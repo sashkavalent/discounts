@@ -9,16 +9,21 @@
 #
 
 class Chain < ActiveRecord::Base
-  has_one :logo, as: :imageable, class_name: Image
-  has_many :discounts
-  has_many :sheets
-  has_one :sheet_setting
+  has_one :logo, as: :imageable, class_name: Image, dependent: :destroy
+  has_many :discounts, dependent: :destroy
+  has_many :sheets, dependent: :destroy
+  has_one :sheet_setting, dependent: :destroy
 
   validates :name, presence: true
   accepts_nested_attributes_for :logo, :sheet_setting
 
   def builded_logo
     logo || build_logo
+  end
+
+  def serializable_hash(*args)
+    super(*args).merge(original_image: logo.attachment.url,
+                       thumb_image: logo.attachment.url(:thumb))
   end
 
   def builded_sheet_setting

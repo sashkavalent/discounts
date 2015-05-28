@@ -18,11 +18,6 @@ class Sheet < ActiveRecord::Base
   has_many :images, as: :imageable, class_name: Image
   has_many :discounts, dependent: :destroy
 
-  def source_url=(url)
-    self.attachment = URI.parse(url).to_s
-  end
-  def source_url;end
-
   # def self.selector
   #   "a:contains('Скачать буклет в формате PDF')"
   # end

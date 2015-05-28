@@ -22,13 +22,12 @@
 
 class Discount < ActiveRecord::Base
   belongs_to :chain
-  has_one :image, as: :imageable
+  has_one :image, as: :imageable, dependent: :destroy
   accepts_nested_attributes_for :image
 
   def serializable_hash(*args)
-    host = 'http://www.discountswith.me/'
-    super(*args).merge(original_image: URI.join(host, image.attachment.url).to_s,
-                       thumb_image: URI.join(host, image.attachment.url(:thumb)).to_s)
+    super(*args).merge(original_image: image.attachment.url,
+                       thumb_image: image.attachment.url(:thumb))
   end
 
   def builded_image
