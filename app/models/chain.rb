@@ -11,6 +11,7 @@
 class Chain < ActiveRecord::Base
   has_one :logo, as: :imageable, class_name: Image, dependent: :destroy
   has_many :discounts, dependent: :destroy
+  has_many :shops, dependent: :destroy
   has_many :sheets, dependent: :destroy
   has_one :sheet_setting, dependent: :destroy
 

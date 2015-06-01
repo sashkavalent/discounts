@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       member do
         post :update_sheet
       end
+      resources :shops
       resources :discounts
       resources :sheets
       resources :sheet_settings

@@ -1,0 +1,13 @@
+h3 Shops
+.well.btn-toolbar
+  = link_to 'new', new_resource_path, class: 'btn btn-primary'
+  = link_to 'Cancel', admin_chains_path, class: 'btn btn-default'
+= table_for collection, html: { class: 'table table-bordered' } do
+  - column :id
+  - column :address
+  - column :opening_at
+  - column :closing_at
+  - column :created_at
+  - column :updated_at
+  - column title: 'Actions' do |shop|
+    - shops_actions(shop)

@@ -1,0 +1,11 @@
+= simple_form_for [:admin, parent, resource], html: { class: 'form-horizontal' },
+                            wrapper: :horizontal_form,
+                            wrapper_mappings: {\
+                              file: :horizontal_file_input\
+                            } do |f|
+  .well.btn-toolbar
+    = f.button :submit, class: 'btn-primary'
+    = link_to 'Cancel', collection_path, class: 'btn btn-default'
+  = f.input :address
+  = f.input :opening_at
+  = f.input :closing_at
