@@ -4,7 +4,6 @@ require 'capistrano/setup'
 # Include default deployment tasks
 require 'capistrano/deploy'
 require 'capistrano/rails'
-require 'rvm1/capistrano3'
 require 'capistrano/postgresql'
 require 'capistrano/secrets_yml'
 require 'capistrano/passenger'

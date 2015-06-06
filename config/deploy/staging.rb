@@ -19,7 +19,6 @@ server 'discountswith.me', user: 'discounts', roles: %w{app db web}
 set :branch, 'staging'
 set :deploy_to, '/home/discounts/staging'
 set :tmp_dir, "#{fetch(:deploy_to)}/tmp"
-set :rvm1_roles, %w{app db web}
 set :bundler_roles, %w{app db web}
 
 # Custom SSH Options
