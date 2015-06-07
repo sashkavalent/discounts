@@ -4,6 +4,11 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'users#index'
+    resources :car_owners do
+      resources :cars
+      resources :emails
+      resources :phones
+    end
 
     resources :chains do
       member do

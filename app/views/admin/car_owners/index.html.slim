@@ -1,0 +1,11 @@
+h3 Car owners
+.well.btn-toolbar
+  = link_to 'new', new_resource_path, class: 'btn btn-primary'
+= table_for collection, html: { class: 'table table-bordered' } do
+  - column :id
+  - column :name
+  - column :second_name
+  - column :created_at
+  - column :updated_at
+  - column title: 'Actions' do |car_owner|
+    - car_owner_actions(car_owner)

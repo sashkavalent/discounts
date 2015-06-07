@@ -1,0 +1,7 @@
+= simple_form_for [:admin, parent, resource], html: { class: 'form-horizontal' },
+                            wrapper: :horizontal_form do |f|
+  .well.btn-toolbar
+    = f.button :submit, class: 'btn-primary'
+    = link_to 'Cancel', collection_path, class: 'btn btn-default'
+  = f.input :email
+  = f.input :description

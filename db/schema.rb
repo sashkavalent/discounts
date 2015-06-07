@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150601212000) do
+ActiveRecord::Schema.define(version: 20150607215748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "car_owners", force: :cascade do |t|
+    t.string   "name"
+    t.string   "second_name"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "cars", force: :cascade do |t|
+    t.string   "model"
+    t.string   "registration_number"
+    t.integer  "car_owner_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
 
   create_table "chains", force: :cascade do |t|
     t.string   "name",       null: false
@@ -38,6 +53,14 @@ ActiveRecord::Schema.define(version: 20150601212000) do
   add_index "discounts", ["chain_id"], name: "index_discounts_on_chain_id", using: :btree
   add_index "discounts", ["sheet_id"], name: "index_discounts_on_sheet_id", using: :btree
 
+  create_table "emails", force: :cascade do |t|
+    t.string   "email"
+    t.text     "description"
+    t.integer  "car_owner_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "images", force: :cascade do |t|
     t.integer  "imageable_id"
     t.string   "imageable_type"
@@ -50,6 +73,14 @@ ActiveRecord::Schema.define(version: 20150601212000) do
   end
 
   add_index "images", ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id", using: :btree
+
+  create_table "phones", force: :cascade do |t|
+    t.string   "phone"
+    t.text     "description"
+    t.integer  "car_owner_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "settings", force: :cascade do |t|
     t.json     "fields"

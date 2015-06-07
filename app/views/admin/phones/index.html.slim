@@ -1,0 +1,12 @@
+h3 Phones
+.well.btn-toolbar
+  = link_to 'new', new_resource_path, class: 'btn btn-primary'
+  = link_to 'Cancel', admin_car_owners_path, class: 'btn btn-default'
+= table_for collection, html: { class: 'table table-bordered' } do
+  - column :id
+  - column :phone
+  - column :description
+  - column :created_at
+  - column :updated_at
+  - column title: 'Actions' do |phone|
+    - phones_actions(phone)

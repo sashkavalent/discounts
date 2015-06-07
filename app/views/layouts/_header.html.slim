@@ -2,11 +2,13 @@ nav.navbar.navbar-default
   .container-fluid
     .navbar-header
       a.navbar-brand href='/admin'
-        | DiscountsWithMe
+        | Discounts & Cars
     .collapse.navbar-collapse
       ul.nav.navbar-nav
         li = link_to 'Chain stores', admin_chains_path
       ul.nav.navbar-nav
         li = link_to 'Settings', edit_admin_setting_path(Setting.instance)
+      ul.nav.navbar-nav
+        li = link_to 'Car owners', admin_car_owners_path
       ul.nav.navbar-nav.navbar-right
         = render 'layouts/account_links'

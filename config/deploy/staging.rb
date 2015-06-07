@@ -7,7 +7,7 @@
 # role :app, %w{deploy@example.com}
 # role :web, %w{deploy@example.com}
 # role :db,  %w{deploy@example.com}
-role :root,  %w{root@discountswith.me}, no_release: true
+# role :root,  %w{root@discountswith.me}, no_release: true
 
 # Extended Server Syntax
 # ======================
@@ -16,7 +16,7 @@ role :root,  %w{root@discountswith.me}, no_release: true
 # used to set extended properties on the server.
 
 server 'discountswith.me', user: 'discounts', roles: %w{app db web}
-set :branch, 'staging'
+set :branch, 'vova-cars'
 set :deploy_to, '/home/discounts/staging'
 set :tmp_dir, "#{fetch(:deploy_to)}/tmp"
 set :bundler_roles, %w{app db web}
