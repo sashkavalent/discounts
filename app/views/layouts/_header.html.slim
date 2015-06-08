@@ -11,4 +11,5 @@ nav.navbar.navbar-default
       ul.nav.navbar-nav
         li = link_to 'Car owners', admin_car_owners_path
       ul.nav.navbar-nav.navbar-right
+        = javascript_include_tag :defaults, 'nested_form'
         = render 'layouts/account_links'

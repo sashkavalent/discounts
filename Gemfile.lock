@@ -176,6 +176,7 @@ GEM
     minitest (5.5.1)
     multi_json (1.11.0)
     multi_xml (0.5.5)
+    nested_form (0.3.2)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
@@ -331,6 +332,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mini_magick
+  nested_form
   paperclip
   pg
   pry

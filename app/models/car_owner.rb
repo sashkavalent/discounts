@@ -14,5 +14,6 @@ class CarOwner < ActiveRecord::Base
   has_many :phones, dependent: :destroy
   has_many :emails, dependent: :destroy
 
+  accepts_nested_attributes_for :cars, :phones, :emails, allow_destroy: true
   default_scope { includes(:cars).includes(:phones).includes(:emails) }
 end

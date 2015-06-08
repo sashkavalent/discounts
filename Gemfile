@@ -46,6 +46,7 @@ gem 'grape-swagger'
 gem 'mini_magick'
 gem 'grim'
 gem 'grape-kaminari'
+gem 'nested_form'
 
 # Use Capistrano for deployment
 group :development do

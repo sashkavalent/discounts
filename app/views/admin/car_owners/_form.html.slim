@@ -1,7 +1,34 @@
-= simple_form_for [:admin, resource], html: { class: 'form-horizontal' },
+= simple_nested_form_for [:admin, resource], html: { class: 'form-horizontal' },
                             wrapper: :horizontal_form do |f|
   .well.well-sm.btn-toolbar
     = f.button :submit, class: 'btn-primary'
     = link_to 'Cancel', collection_path, class: 'btn btn-default'
   = f.input :name
   = f.input :second_name
+  .well
+    h4 Cars
+    = f.simple_fields_for :cars do |car_form|
+      = car_form.input :model
+      = car_form.input :registration_number
+      = car_form.link_to_remove 'Remove car', class: 'btn btn-danger btn-sm pull-right'
+      .clearfix
+    = f.link_to_add 'Add car', :cars, class: 'btn btn-success btn-sm pull-right'
+    .clearfix
+  .well
+    h4 Phones
+    = f.simple_fields_for :phones do |phone_form|
+      = phone_form.input :phone
+      = phone_form.input :description
+      = phone_form.link_to_remove 'Remove phone', class: 'btn btn-danger btn-sm pull-right'
+      .clearfix
+    = f.link_to_add 'Add phone', :phones, class: 'btn btn-success btn-sm pull-right'
+    .clearfix
+  .well
+    h4 Emails
+    = f.simple_fields_for :emails do |email_form|
+      = email_form.input :email
+      = email_form.input :description
+      = email_form.link_to_remove 'Remove email', class: 'btn btn-danger btn-sm pull-right'
+      .clearfix
+    = f.link_to_add 'Add email', :emails, class: 'btn btn-success btn-sm pull-right'
+    .clearfix
